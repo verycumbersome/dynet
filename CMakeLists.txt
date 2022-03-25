@@ -77,7 +77,8 @@ if(WIN32)
 elseif(APPLE AND (${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm.*" OR ${CMAKE_SYSTEM_PROCESSOR} MATCHES "aarch64.*"))
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcpu=apple-m1")   # Clang on ARM-based Macs does not support -march=native
 else()
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcpu=apple-m1")   # Clang on ARM-based Macs does not support -march=native
+  #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
 endif()
 
 ######## Compiler-specific options
